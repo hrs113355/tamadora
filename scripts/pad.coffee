@@ -13,9 +13,16 @@ module.exports = (robot) ->
         str += "\n滿等需要經驗值: #{row.need_exp}\n"
         str += "滿等時HP: #{row.hp} 攻擊: #{row.atk} 回復: #{row.rcv}\n"
         str += "主動技: #{row.skill_name} (#{row.skill_cd} -> #{row.skill_min_cd})\n"
-        str += "> #{row.skill}\n"
+
+        skills = row.skill.split("\n")
+        for skill in skills
+          str += "> #{skill}\n"
+  
         str += "隊長技: #{row.lskill_name}\n"
-        str += "> #{row.lskill}"
+
+        lskills = row.lskill.split("\n")
+        for lskill in lskills
+          str += "> #{lskill}\n"
 
         res.send str
     db.close()
