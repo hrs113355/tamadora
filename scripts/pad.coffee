@@ -24,6 +24,7 @@ module.exports = (robot) ->
         for lskill in lskills
           str += "> #{lskill}\n"
 
+        res.send "https://dl.dropboxusercontent.com/u/78642/pad/pet_icons/#{res.match[1]}.png"
         res.send str
     db.close()
 
