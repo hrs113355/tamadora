@@ -44,7 +44,9 @@ module.exports = (robot) ->
         if rows.length == 0
           res.send "塔麻找不到 :wave-bye:"
         else
-          res.send "有關 #{keyword} 的搜尋如下: "
+          str = "有關 #{keyword} 的搜尋如下: \n"
           for row in rows
-            res.send = "No.#{row.pad_id} #{row.name} (#{row.c_name})"
+            str += "No.#{row.pad_id} #{row.name} (#{row.c_name})\n"
+            str += "https://dl.dropboxusercontent.com/u/78642/pad/pet_icons/#{row.pad_id}.png\n"
+          res.send str
     db.close()
