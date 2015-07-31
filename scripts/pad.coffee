@@ -34,3 +34,17 @@ module.exports = (robot) ->
           res.send str
     db.close()
 
+  robot.hear /pad ([^0-9]+)/i, (res) ->
+    sqlite3 = require('sqlite3').verbose()
+    db = new sqlite3.Database('./pad.sqlite')
+    keyword = res.match[1]
+
+    db.serialize () ->
+      db.all 'select * from monsters where name like $keyword or c_name like $keyword', {$keyword: "%#{keyword}%"}, (err, rows) ->
+        if rows.length == 0
+          res.send "塔麻找不到 :wave-bye:"
+        else
+          res.send "有關 #{keyword} 的搜尋如下: "
+          for row in rows
+            res.send = "No.#{row.pad_id} #{row.name} (#{row.c_name})"
+    db.close()
