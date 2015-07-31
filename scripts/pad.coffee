@@ -49,6 +49,6 @@ module.exports = (robot) ->
           str = "有關 #{keyword} 的搜尋如下: \n"
           for row in rows
             str += "No.#{row.pad_id} #{row.name} (#{row.c_name})\n"
-            str += "https://dl.dropboxusercontent.com/u/78642/pad/pet_icons/#{row.pad_id}.png\n"
+            str += "http://zh.pad.wikia.com/wiki/#{row.pad_id}\n"
           res.send str
     db.close()
