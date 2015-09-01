@@ -32,7 +32,7 @@ module.exports = (robot) ->
 
           str += "http://zh.pad.wikia.com/wiki/#{row.pad_id}"
 
-          res.send "https://dl.dropboxusercontent.com/u/78642/pad/pet_icons/#{res.match[1]}.png"
+          res.send "http://hrs113355.github.io/pad_static/images/icons/#{res.match[1]}.png"
           res.send str
     db.close()
 
@@ -84,6 +84,6 @@ module.exports = (robot) ->
   
             str += "http://zh.pad.wikia.com/wiki/#{row.pad_id}"
   
-            res.send "https://dl.dropboxusercontent.com/u/78642/pad/pet_icons/#{row.pad_id}.png"
+            res.send "http://hrs113355.github.io/pad_static/images/icons/#{row.pad_id}.png"
             res.send str
     db.close()
