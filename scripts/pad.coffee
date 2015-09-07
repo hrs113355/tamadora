@@ -30,7 +30,7 @@ module.exports = (robot) ->
           for lskill in lskills
             str += "> #{lskill}\n"
 
-          str += "http://zh.pad.wikia.com/wiki/#{row.pad_id}"
+          str += "zh.pad.wikia.com/wiki/#{row.pad_id}"
 
           res.send "http://hrs113355.github.io/pad_static/images/icons/#{res.match[1]}.png"
           res.send str
@@ -82,7 +82,7 @@ module.exports = (robot) ->
             for lskill in lskills
               str += "> #{lskill}\n"
   
-            str += "http://zh.pad.wikia.com/wiki/#{row.pad_id}"
+            str += "zh.pad.wikia.com/wiki/#{row.pad_id}"
   
             res.send "http://hrs113355.github.io/pad_static/images/icons/#{row.pad_id}.png"
             res.send str
