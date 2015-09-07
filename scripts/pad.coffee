@@ -6,7 +6,7 @@ module.exports = (robot) ->
     db.serialize () ->
       db.all "select * from monsters where pad_id=" + res.match[1], (err, rows) ->
         if (rows.length == 0)
-          res.send "塔麻找不到 :wave-bye: :edited:"
+          res.send "塔麻找不到 :wave-bye: :lmao:"
         else
           row = rows[0]
 
@@ -59,7 +59,7 @@ module.exports = (robot) ->
 
       db.all 'select * from monsters where name like $keyword or c_name like $keyword order by id asc limit 5 offset $offset', {$keyword: "%#{keyword}%", $offset: offset}, (err, rows) ->
         if rows.length == 0
-          res.send "塔麻找不到 :wave-bye: :edited:"
+          res.send "塔麻找不到 :wave-bye: :lmao:"
         else
           for row in rows
             str = "No.#{row.pad_id} #{row.name} (#{row.c_name})\n屬性: #{row.element}"
