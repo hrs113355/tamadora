@@ -95,3 +95,6 @@ module.exports = (robot) ->
             res.send str
       else
         res.send "塔麻找不到 :wave-bye: :lmao:"
+
+  robot.hear /(幹|山本)/, (res) ->
+    res.send "幹你山本 :kp:"
