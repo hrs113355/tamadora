@@ -102,3 +102,8 @@ module.exports = (robot) ->
   robot.hear /worship/i, (res) ->
     if Math.random() < 0.1
       res.send "強欸 :wave-bye:"
+
+  robot.router.post '/hubot/notify/:room', (req, res) ->
+    room = req.params.room
+    message = req.body.message
+    robot.messageRoom room, message
