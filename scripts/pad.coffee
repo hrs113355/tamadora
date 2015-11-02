@@ -1,4 +1,32 @@
 module.exports = (robot) ->
+  show_monster = (monster, res) ->
+    str = "No.#{monster.pad_id} #{monster.name} (#{monster.c_name})\n屬性: #{monster.element}"
+    if monster.sub_element
+      str += "/#{monster.sub_element}"
+    str += "\nType: #{monster.type}"
+    if monster.sub_type
+      str += "/#{monster.sub_type}"
+    str += "\n滿等需要經驗值: #{monster.need_exp}\n"
+    str += "滿等時HP: #{monster.hp} 攻擊: #{monster.atk} 回復: #{monster.rcv}\n"
+    str += "主動技: #{monster.skill_name} (#{monster.skill_cd} -> #{monster.skill_min_cd})\n"
+  
+    if monster.skill_desc?
+      skills = monster.skill_desc.split("\n")
+      for skill in skills
+        str += "> #{skill}\n"
+  
+    str += "隊長技: #{monster.lskill_name}\n"
+  
+    if monster.lskill_desc?
+      lskills = monster.lskill_desc.split("\n")
+      for lskill in lskills
+        str += "> #{lskill}\n"
+  
+    str += "zh.pad.wikia.com/wiki/#{monster.pad_id}"
+  
+    res.send monster.icon.url
+    res.send str
+
   robot.hear /pad (\d+)/i, (res) ->
     request = require('request')
     url = "#{process.env.PAD_API_URL}/#{res.match[1]}"
@@ -8,34 +36,7 @@ module.exports = (robot) ->
       json: true
     }, (error, response, body) ->
       if !error and response.statusCode == 200
-        data = body
-  
-        str = "No.#{data.pad_id} #{data.name} (#{data.c_name})\n屬性: #{data.element}"
-        if data.sub_element
-          str += "/#{data.sub_element}"
-        str += "\nType: #{data.type}"
-        if data.sub_type
-          str += "/#{data.sub_type}"
-        str += "\n滿等需要經驗值: #{data.need_exp}\n"
-        str += "滿等時HP: #{data.hp} 攻擊: #{data.atk} 回復: #{data.rcv}\n"
-        str += "主動技: #{data.skill_name} (#{data.skill_cd} -> #{data.skill_min_cd})\n"
-  
-        if data.skill_desc?
-          skills = data.skill_desc.split("\n")
-          for skill in skills
-            str += "> #{skill}\n"
-  
-        str += "隊長技: #{data.lskill_name}\n"
-  
-        if data.lskill_desc?
-          lskills = data.lskill_desc.split("\n")
-          for lskill in lskills
-            str += "> #{lskill}\n"
-  
-        str += "zh.pad.wikia.com/wiki/#{data.pad_id}"
-  
-        res.send data.icon.url
-        res.send str
+        show_monster(body, res)
       else
         res.send "塔麻找不到 :wave-bye: :lmao:"
 
@@ -67,32 +68,7 @@ module.exports = (robot) ->
           res.send "塔麻找不到 :wave-bye: :lmao:"
         else
           for data in monsters
-            str = "No.#{data.pad_id} #{data.name} (#{data.c_name})\n屬性: #{data.element}"
-            if data.sub_element
-              str += "/#{data.sub_element}"
-            str += "\nType: #{data.type}"
-            if data.sub_type
-              str += "/#{data.sub_type}"
-            str += "\n滿等需要經驗值: #{data.need_exp}\n"
-            str += "滿等時HP: #{data.hp} 攻擊: #{data.atk} 回復: #{data.rcv}\n"
-            str += "主動技: #{data.skill_name} (#{data.skill_cd} -> #{data.skill_min_cd})\n"
-      
-            if data.skill_desc?
-              skills = data.skill_desc.split("\n")
-              for skill in skills
-                str += "> #{skill}\n"
-      
-            str += "隊長技: #{data.lskill_name}\n"
-      
-            if data.lskill_desc?
-              lskills = data.lskill_desc.split("\n")
-              for lskill in lskills
-                str += "> #{lskill}\n"
-      
-            str += "zh.pad.wikia.com/wiki/#{data.pad_id}"
-      
-            res.send data.icon.url
-            res.send str
+            show_monster(data, res)
       else
         res.send "塔麻找不到 :wave-bye: :lmao:"
 
