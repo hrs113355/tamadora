@@ -76,7 +76,7 @@ module.exports = (robot) ->
     res.send "幹你山本 :kp:"
 
   robot.hear /worship/i, (res) ->
-    if Math.random() < 0.1
+    if Math.random() < 0.2
       res.send "強欸 :wave-bye:"
 
   robot.router.post '/hubot/notify/:room', (req, res) ->
