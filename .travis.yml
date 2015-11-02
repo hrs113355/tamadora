@@ -4,6 +4,8 @@ node_js:
 - '0.10'
 notifications:
   email: false
+  slack:
+    secure: FsplVnNoBHgZmZ4uitu5bRzjjjySAYg9w4gZ6Ch+ZgmY7dXxQ99ebVHqK7DaWbbp2rm3+wThtLz67Ia3SPgk2PeXORriHykJBn1gqPtj67aLGSC0KkFaastpVbCgxh9dKSFcyIzT/OiYcKmqQ+vgEKpqjpgljA8AgGxlToNA+h9i32sWR/l1PalAPk+uyqMW/fZoilWQ44fy0nyNxmIkbCQZF9cnuJUaRiAnDnazfF9+tw91QHYEkVkBCjF/oi9mcRaaQwqtE/Y13MQbivsDlp5UNnvMNFMCtGTL9BOfDqHqiEB+R3OTrN6644OU43ZuqSqs5cXOsuU1nC0/U3GiSJTosHAIfIrqSyPEmH9vO7DQH615ku2boMFqb7e/c0/5N9gRdWSeigj151nhe35gsTcTl5fCel/9xrWwYVx1apZhy7oVxS5MZS1hQG2UZBdkxf+G/VS/OtigDv/BzrB6j71t6kv0763NRd1ZrMXhYAS0aNkRRs9OxCH5O1VBn9ML/qmgxqSrenthnWqmfm2+KBVjCwvT5SEnf802ftTemleRi0nvdL0mq432YhTvaMVt0GHePQPRJ6JzVrVHeXLaVVRijza21kKESWE/z0NgbdXnAzrao0AlmDHDRuNEsLk3kWS1iwj088NYmazR/TmEGZAkJb7OulMYGj3sdG/k1Yk=
 deploy:
   provider: heroku
   api_key:
