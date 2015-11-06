@@ -1,25 +1,25 @@
 {
   "name": "tamadora",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "author": "hrs <hrs113355@gmail.com>",
   "description": "puzzle & dragons assistant bot",
   "dependencies": {
-    "hubot": "^2.13.2",
+    "hubot": "^2.16.0",
     "hubot-diagnostics": "0.0.1",
-    "hubot-help": "^0.1.1",
+    "hubot-help": "^0.1.2",
     "hubot-heroku-keepalive": "0.0.4",
     "hubot-maps": "0.0.2",
     "hubot-pugme": "^0.1.0",
     "hubot-redis-brain": "0.0.3",
     "hubot-rules": "^0.1.1",
-    "hubot-scripts": "^2.16.1",
+    "hubot-scripts": "^2.16.2",
     "hubot-shipit": "^0.2.0",
-    "hubot-slack": "^3.3.0",
+    "hubot-slack": "^3.4.1",
     "request": "^2.65.0"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "4.2.2"
   },
   "devDependencies": {
     "chai": "^3.4.0",
