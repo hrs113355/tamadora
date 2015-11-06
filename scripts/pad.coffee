@@ -10,8 +10,13 @@ module.exports = (robot) ->
     str += "\nType: #{monster.type}"
     if monster.sub_type
       str += "/#{monster.sub_type}"
+
     
     str += "\n滿等需要經驗值: #{monster.need_exp}\n"
+
+    if monster.mp?
+      str += "MP: #{monster.mp}\n"
+
     str += "滿等時HP: #{monster.hp} 攻擊: #{monster.atk} 回復: #{monster.rcv}\n"
     str += "主動技: #{monster.skill_name} (#{monster.skill_cd} -> #{monster.skill_min_cd})\n"
   
