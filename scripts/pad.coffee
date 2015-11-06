@@ -1,7 +1,7 @@
 module.exports = (robot) ->
   show_monster = (monster, res) ->
-    str = "No.#{monster.pad_id} #{monster.name} (#{monster.c_name})"
-    str += " :star:" for i in [1..monster.rare]
+    str = "No.#{monster.pad_id} #{monster.name} (#{monster.c_name})\n"
+    str += ":star: " for i in [1..monster.rare]
     str += "\n"
 
     str += "屬性: #{monster.element}"
@@ -15,7 +15,7 @@ module.exports = (robot) ->
     str += "\n滿等需要經驗值: #{monster.need_exp}\n"
 
     if monster.mp?
-      str += "MP: #{monster.mp}\n"
+      str += "販賣後可獲得 MP: #{monster.mp}\n"
 
     str += "滿等時HP: #{monster.hp} 攻擊: #{monster.atk} 回復: #{monster.rcv}\n"
     str += "主動技: #{monster.skill_name} (#{monster.skill_cd} -> #{monster.skill_min_cd})\n"
