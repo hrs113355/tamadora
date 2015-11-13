@@ -1,3 +1,21 @@
+# Description:
+#   tamadora - Puzzle & Dragons assistant hubot
+#
+# Dependencies:
+#   hubot
+#
+# Configuration:
+#   set environment variable 'PAD_API_URL' to root url of pad monster api
+#
+# Commands:
+#   pad <number>: get monster data of specific monster id
+#   pad keyword: search for monsters by given keyword
+#   TAMADORA TEST: test command
+#
+# Author:
+#
+#   hrs (hrs113355@gmail.com)
+
 module.exports = (robot) ->
   show_monster = (monster, res) ->
     str = "No.#{monster.pad_id} #{monster.name} (#{monster.c_name})\n"
