@@ -1,23 +1,44 @@
+Helper = require('hubot-test-helper')
 expect = require('chai').expect
-helper = require 'hubot-mock-adapter-helper'
- 
-TextMessage = require('hubot/src/message').TextMessage
- 
-describe 'tamadora test', ->
-  {robot, user, adapter} = {}
- 
-  beforeEach (done) ->
-    helper.setupRobot (ret) ->
-      {robot, user, adapter} = ret
-      done()
- 
+
+# helper loads a specific script if it's a file
+helper = new Helper('./../scripts/pad.coffee')
+
+describe 'ping', ->
+  room = null
+
+  beforeEach ->
+    # Set up the room before running the test
+    room = helper.createRoom()
+
   afterEach ->
-    robot.shutdown()
- 
-  it 'responds test', (done) ->
-    adapter.on 'reply', (envelope, strings) ->
-      expect(envelope.user.name).to.equal('mocha')
-      expect(strings[0]).to.not.equal("receive test.")
-    , done()
- 
-    adapter.receive(new TextMessage(user, 'TAMADORA TEST'))
+    # Tear it down after the test to free up the listener.
+    room.destroy()
+
+  context 'tamadora reply hard strings', ->
+    beforeEach ->
+      room.user.say 'alice', 'TAMADORA TEST'
+
+    it 'replies "receive test." when user request TAMADORA TEST', ->
+      expect(room.messages).to.eql [
+        ['alice', 'TAMADORA TEST']
+        ['hubot', 'receive test.']
+      ]
+
+  context 'tamadora reply monster data', ->
+    beforeEach (done)->
+      room.user.say 'alice', 'pad 1'
+      setTimeout done, 1900
+
+    it 'replies monster data query by pad id', ->
+      expect(room.messages[1][1]).to.contain('amazonaws')
+      expect(room.messages[2][1]).to.contain('提拉')
+
+  context 'tamadora reply monster data', ->
+    beforeEach (done)->
+      room.user.say 'alice', 'pad 5566'
+      setTimeout done, 1900
+
+    it 'replies not found when specific id is not found', ->
+      expect(room.messages[1][1]).to.contain('塔麻找不到')
+
