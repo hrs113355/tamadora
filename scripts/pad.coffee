@@ -86,8 +86,7 @@ module.exports = (robot) ->
     res.send "幹你山本 :kp:"
 
   robot.hear /worship/i, (res) ->
-    if Math.random() < 0.2
-      res.send "強欸 :wave-bye:"
+    if Math.random() < 0.25
       worships = [":worship:", ":rworship:", ":nworship:", ":qworship:", ":worshipokok:", ":4leafworship:", ":oaoworship:", ":pandaworship:", ":owoworship:", ":qrworship:", ":nearworship:", ":sbworship:"]
       res.send "強欸 " + res.random(worships)
 
