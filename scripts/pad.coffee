@@ -1,7 +1,10 @@
 module.exports = (robot) ->
   show_monster = (monster, res) ->
     str = "No.#{monster.pad_id} #{monster.name} (#{monster.c_name})\n"
-    str += ":star: " for i in [1..monster.rare]
+    if monster.rare >= 7
+      str += ":star2: " for i in [1..monster.rare]
+    else
+      str += ":star: " for i in [1..monster.rare]
     str += "\n"
 
     str += "屬性: #{monster.element}"

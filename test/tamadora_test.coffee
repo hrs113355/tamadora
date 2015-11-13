@@ -43,3 +43,19 @@ describe 'tamadora test', ->
     it 'replies not found when specific id is not found', ->
       expect(room.messages[1][1]).to.contain('塔麻找不到')
 
+  context 'tamadora display monster rarity with star', ->
+    beforeEach (done)->
+      room.user.say 'alice', 'pad 689'
+      setTimeout done, 5000
+
+    it 'displays monster rarity with star emoticon', ->
+      expect(room.messages[2][1]).to.contain(':star:')
+
+  context 'tamadora display monster rarity with star', ->
+    beforeEach (done)->
+      room.user.say 'alice', 'pad 2292' # mizugi pandora (rarity = 7)
+      setTimeout done, 5000
+
+    it 'displays monster rarity with star2 emoticon when monster is very rare', ->
+      expect(room.messages[2][1]).to.contain(':star2:')
+
