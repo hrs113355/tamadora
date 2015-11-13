@@ -88,6 +88,8 @@ module.exports = (robot) ->
   robot.hear /worship/i, (res) ->
     if Math.random() < 0.2
       res.send "強欸 :wave-bye:"
+      worships = [":worship:", ":rworship:", ":nworship:", ":qworship:", ":worshipokok:", ":4leafworship:", ":oaoworship:", ":pandaworship:", ":owoworship:", ":qrworship:", ":nearworship:", ":sbworship:"]
+      res.send "強欸 " + res.random(worships)
 
   robot.hear /TAMADORA TEST/, (res) ->
     res.send "receive test."
