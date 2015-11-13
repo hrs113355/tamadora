@@ -4,7 +4,8 @@ expect = require('chai').expect
 # helper loads a specific script if it's a file
 helper = new Helper('./../scripts/pad.coffee')
 
-describe 'ping', ->
+describe 'tamadora test', ->
+  this.timeout(15000)
   room = null
 
   beforeEach ->
@@ -28,7 +29,7 @@ describe 'ping', ->
   context 'tamadora reply monster data', ->
     beforeEach (done)->
       room.user.say 'alice', 'pad 1'
-      setTimeout done, 1900
+      setTimeout done, 5000
 
     it 'replies monster data query by pad id', ->
       expect(room.messages[1][1]).to.contain('amazonaws')
@@ -37,7 +38,7 @@ describe 'ping', ->
   context 'tamadora reply monster data', ->
     beforeEach (done)->
       room.user.say 'alice', 'pad 5566'
-      setTimeout done, 1900
+      setTimeout done, 5000
 
     it 'replies not found when specific id is not found', ->
       expect(room.messages[1][1]).to.contain('塔麻找不到')
