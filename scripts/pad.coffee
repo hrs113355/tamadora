@@ -115,7 +115,7 @@ module.exports = (robot) ->
     msg.reply "スキルレベルアップ確率(リプライ確率) " + msg.match[1] + " 倍設定完成"
     robot.brain.set('skill_up_multiply', msg.match[1])
 
-  robot.respond /skill up ?/, (msg) ->
+  robot.respond /skill up \?/, (msg) ->
     msg.reply "現スキルレベルアップ確率(リプライ確率): " + skill_up_multiply + " 倍"
 
   robot.hear /worship/i, (res) ->
