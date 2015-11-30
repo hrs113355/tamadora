@@ -106,9 +106,23 @@ module.exports = (robot) ->
   robot.hear /(幹你|山本)/, (res) ->
     res.send "幹你山本 :kp:"
 
+###################
+# skill lvl up part
+  skill_up_multiply = ->
+    return robot.brain.get('skill_up_multiply') or process.env.HUBOT_REPLY_THRESHOLD or 1
+    
+  robot.respond /skill up x(\d+(\.\d+)?$)/, (msg) ->
+    msg.reply "スキルレベルアップ確率(リプライ確率) " + msg.match[1] + " 倍設定完成"
+    robot.brain.set('skill_up_multiply', msg.match[1])
+
+  robot.respond /skill up ?/, (msg) ->
+    msg.reply "現スキルレベルアップ確率(リプライ確率): " + skill_up_multiply + " 倍"
+
   robot.hear /worship/i, (res) ->
-    if Math.random() < 0.3
+    if Math.random() < (skill_up_multiply * 0.1)
       res.send "強欸 m(_ _)m"
+# skill lvl up part end
+###################
 
   robot.hear /TAMADORA TEST/, (res) ->
     res.send "receive test."
