@@ -107,7 +107,7 @@ module.exports = (robot) ->
     res.send "幹你山本 :kp:"
 
   robot.hear /worship/i, (res) ->
-    if Math.random() < 0.2
+    if Math.random() < 0.3
       res.send "強欸 m(_ _)m"
 
   robot.hear /TAMADORA TEST/, (res) ->
