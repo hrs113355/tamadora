@@ -103,8 +103,11 @@ module.exports = (robot) ->
       else
         res.send "塔麻找不到 :wave-bye: :lmao:"
 
-  robot.hear /(幹你|山本)/, (res) ->
+  robot.hear /幹你山本/, (res) ->
     res.send "幹你山本 :kp:"
+
+  robot.hear /幹你7x4/, (res) ->
+    res.send "幹你7x4 :kp:"
 
   robot.hear /worship/i, (res) ->
     if Math.random() < 0.3
