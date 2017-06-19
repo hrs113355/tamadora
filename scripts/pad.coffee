@@ -31,8 +31,9 @@ module.exports = (robot) ->
     str += "\nType: #{monster.type}"
     if monster.sub_type
       str += "/#{monster.sub_type}"
+    if monster.thrid_type
+      str += "/#{monster.third_type}"
 
-    
     str += "\n滿等需要經驗值: #{monster.need_exp}\n"
 
     if monster.mp?
