@@ -8,6 +8,7 @@ helper = new Helper('./../scripts/pad.coffee')
 
 describe 'tamadora test', ->
   this.timeout(8000)
+  network_timeout = 3000
   room = null
 
   beforeEach ->
@@ -33,7 +34,7 @@ describe 'tamadora test', ->
     beforeEach ->
       co =>
         yield room.user.say 'alice', 'pad 1'
-        yield new Promise.delay(3500)
+        yield new Promise.delay(network_timeout)
 
     it 'replies monster data query by pad id', ->
       expect(room.messages[1][1]).to.contain('amazonaws')
@@ -43,7 +44,7 @@ describe 'tamadora test', ->
     beforeEach ->
       co =>
         yield room.user.say 'alice', 'pad 5566'
-        yield new Promise.delay(3500)
+        yield new Promise.delay(network_timeout)
 
     it 'replies not found when specific id is not found', ->
       expect(room.messages[1][1]).to.contain('塔麻找不到')
@@ -52,7 +53,7 @@ describe 'tamadora test', ->
     beforeEach ->
       co =>
         yield room.user.say 'alice', 'pad 689'
-        yield new Promise.delay(3500)
+        yield new Promise.delay(network_timeout)
 
     it 'displays monster rarity with star emoticon', ->
       expect(room.messages[2][1]).to.contain(':star:')
@@ -61,7 +62,7 @@ describe 'tamadora test', ->
     beforeEach ->
       co =>
         yield room.user.say 'alice', 'pad 2292' # 水着パンドラ (rarity = 7)
-        yield new Promise.delay(3500)
+        yield new Promise.delay(network_timeout)
 
     it 'displays monster rarity with star2 emoticon when monster is very rare', ->
       expect(room.messages[2][1]).to.contain(':star2:')
