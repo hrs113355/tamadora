@@ -6,26 +6,26 @@
   "description": "puzzle & dragons assistant bot",
   "dependencies": {
     "hubot": "^2.16.0",
-    "hubot-diagnostics": "0.0.1",
-    "hubot-help": "^0.1.2",
-    "hubot-heroku-keepalive": "0.0.4",
-    "hubot-maps": "0.0.2",
+    "hubot-diagnostics": "0.0.2",
+    "hubot-help": "^0.2.2",
+    "hubot-heroku-keepalive": "1.0.3",
+    "hubot-maps": "0.0.3",
     "hubot-pugme": "^0.1.0",
-    "hubot-redis-brain": "0.0.3",
+    "hubot-redis-brain": "0.0.4",
     "hubot-rules": "^0.1.1",
     "hubot-scripts": "^2.16.2",
     "hubot-shipit": "^0.2.0",
-    "hubot-slack": "^3.4.1",
+    "hubot-slack": "^4.3.4",
     "request": "^2.65.0"
   },
   "engines": {
-    "node": "4.2.2"
+    "node": "4.8.4"
   },
   "devDependencies": {
-    "chai": "^3.4.0",
+    "chai": "^4.1.0",
     "coffee-script": "^1.10.0",
     "hubot-test-helper": "^1.2.0",
-    "mocha": "^2.3.3"
+    "mocha": "^3.4.2"
   },
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script --compilers mocha --compilers coffee:coffee-script/register"
