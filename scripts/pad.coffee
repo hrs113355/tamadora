@@ -110,6 +110,9 @@ module.exports = (robot) ->
   robot.hear /幹你7x4/, (res) ->
     res.send "幹你7x4 :kp:"
 
+  robot.hear /\.\.\./, (res) ->
+    res.send "......"
+
   robot.hear /worship/i, (res) ->
     if Math.random() < 0.3
       res.send "強欸 m(_ _)m"
